@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+i {
+    padding: 0.3rem;
+}
+
+.topBanner {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    background: blue;
+}
