@@ -4,17 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- CSS stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  
   <!-- stylesheet for Foundation-->
   <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css" />
+<!-- CSS stylesheet -->
+<link rel="stylesheet" href="assets/css/style.css" />
 
   <title>Worldwide Travel Assistant</title>
 </head>
 
 <body>
   <div class="topBanner row">
+    <div class="columns large-12 small-12 medium-12">
     <h1>Worldwide Travel Assistant</h1>
+    </div>
   </div>
 
  <!-- Foundation Grid -->
@@ -22,7 +25,7 @@
   <div class="columns large-4 small-4 medium-4">
     <h5>Enter Destination City</h5>
   <!-- Destination City Input -->
-    <form>
+    <form class= "border">
       <div class="input-group">
         <input class="cityName input-group-field" type="text">
         <div class="citySubmit input-group-button">
@@ -38,9 +41,10 @@
         </div>
       </div>
       </form>
+
 <!-- City Data Response -->
       <div class="cityData row">
-        <h5>City Information</h5>
+        <h5 class="centerText">City Information</h5>
         <p class="population">Population:</p>
         <p class="language">Language:</p>
         <p>State/Country Flag:</p>
@@ -51,7 +55,7 @@
       </div>
   </div>
   <div class="columns large-8 small-8 medium-8">
-    <h5>Weather Forecast</h5>
+    <h5 class="centerText">Weather Forecast</h5>
 
     <!-- City Weather Forecast Card Response -->
     <div class="day1 card" style="width: 300px;">
