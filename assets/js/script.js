@@ -1,11 +1,14 @@
 $(document).ready(function () {
   $(".currentTime").text(moment().format("llll"));
-  $(document).foundation();
+  // $(document).foundation();
 });
-var country = "";
-var city = "";
-var startDate = "";
-var endDate = "";
+$("#submit").on("click", function(){
+
+
+var country = $("#country").val().trim().upperCase();
+var city = $("#city").val().trim().upperCase();
+var startDate = $("#sd").val().toString();
+var endDate = $("#ed").val().toString();
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
 // Here we are building the URL we need to query the database
@@ -29,11 +32,14 @@ $.ajax({
     var lon = response.coord.lon;
     var countrycode = response.sys.country;
     // function calls using the information we got from the weatherapi call
-    console.log(queryURL);
-    calendricapi(countrycode);
-    weatherforcastapi(lat, lon);
-    coutryflag(countrycode);
+    console.log(response);
+    // calendricapi(countrycode);
+    // weatherforcastapi(lat, lon);
+    // coutryflag(countrycode);
   });
+});
+
+
 
 function calendricapi(countrycode) {
   $.ajax({
@@ -61,6 +67,8 @@ function calendricapi(countrycode) {
   });
 }
 
+
+
 function weatherforcastapi(lat, lon) {
   $.ajax({
     url: "",
@@ -69,6 +77,8 @@ function weatherforcastapi(lat, lon) {
     // weather forcast code goes here
   });
 }
+
+
 
 function coutryflag(countrycode) {
   $.ajax({
