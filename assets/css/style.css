@@ -1,26 +1,46 @@
-.topBanner {
+
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.25rem;
     font-weight: bold;
     text-align: center;
     color: white;
+    padding-top: 1.0rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     background: #2199e8;
+    opacity: 0.6;
 }
-
+/* Style for font awesome icon  */
+i {
+    padding-left: .75rem;
+}
+/* Style for all h5 tags */
 h5 {
     font-weight: bold;
 }
-
+/* Style h5 text inside cityData div */
 .centerText {
     text-align: center;
 }
-
+/* Style user inputs for better background image appearance  */
+.cityName, .daysStay {
+    border-color:  #2199e8;
+    background-color: white;
+    opacity: 0.6;
+}
+/* Style for button bg color and opacity */
+.button {
+    background-color:  #2199e8;
+    opacity: 0.6;
+}
+/* Style cityData div for better background image appearance  */
 .cityData {
     border-style: solid;
+    background-color: white;
+    opacity: 0.6;
     border-color:  #2199e8;
+    margin-left: 0.9rem;
     padding: 1rem;
 }
 
-.button{
-   font-size: 15px;
-   font-weight: bold;
-}
+
