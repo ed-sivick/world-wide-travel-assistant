@@ -35,10 +35,26 @@ h5 {
     background-color: white;
     opacity: 0.6;
 }
+
+#start{
+    border-color:  #2199e8;
+    background-color: white;
+    opacity: 0.6;
+}
+
+#end{
+    border-color:  #2199e8;
+    background-color: white;
+    opacity: 0.6; 
+    margin-bottom: 10px;
+}
 /* Style for button bg color and opacity */
 .button {
+    font-size: 15px;
+   font-weight: bold;
     background-color:  #2199e8;
     opacity: 0.6;
+    margin-bottom: 20px;
 }
 /* Style cityData div for better background image appearance  */
 .cityData {
