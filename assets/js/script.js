@@ -62,6 +62,7 @@ function calendricapi(countrycode) {
         holidayarray[i].date.datetime.day +
         "/" +
         holidayarray[i].date.datetime.year;
+        
     }
     console.log(response);
   });
