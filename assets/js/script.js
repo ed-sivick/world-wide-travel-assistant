@@ -2,37 +2,37 @@ $(document).ready(function () {
   $(".currentTime").text(moment().format("llll"));
   // $(document).foundation();
 });
-$("#submit").click(function(event){
-event.preventDefault();
-var country = $("#country").val().trim().toUpperCase();
-var city = $("#city").val().trim().toUpperCase();
-var startDate = $("#sd").val().toString();
-var endDate = $("#ed").val().toString();
-// start year
-var syear = new Date(startDate).getFullYear();
-// start month
-var smonth = new Date(startDate).getMonth() + 1;
-// end year
-var eyear = new Date(endDate).getFullYear();
-// end month
-var emonth = new Date(endDate).getMonth() + 1;
-if(syear===eyear){
-if(smonth === emonth){
-  var visitMonth = smonth;
-}else{
-  var visitMonth = smonth +","+emonth;
-}
-}
-var APIKey = "166a433c57516f51dfab1f7edaed8413";
-// Here we are building the URL we need to query the database
-var queryURL =
-  "https://api.openweathermap.org/data/2.5/weather?" +
-  "q=" +
-  city +
-  "," +
-  country +
-  "&appid=" +
-  APIKey;
+$("#submit").click(function (event) {
+  event.preventDefault();
+  var country = $("#country").val().trim().toUpperCase();
+  var city = $("#city").val().trim().toUpperCase();
+  var startDate = $("#sd").val().toString();
+  var endDate = $("#ed").val().toString();
+  // start year
+  var syear = new Date(startDate).getFullYear();
+  // start month
+  var smonth = new Date(startDate).getMonth() + 1;
+  // end year
+  var eyear = new Date(endDate).getFullYear();
+  // end month
+  var emonth = new Date(endDate).getMonth() + 1;
+  if (syear === eyear) {
+    if (smonth === emonth) {
+      var visitMonth = smonth;
+    } else {
+      var visitMonth = smonth + "," + emonth;
+    }
+  }
+  var APIKey = "166a433c57516f51dfab1f7edaed8413";
+  // Here we are building the URL we need to query the database
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?" +
+    "q=" +
+    city +
+    "," +
+    country +
+    "&appid=" +
+    APIKey;
 
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
@@ -131,6 +131,7 @@ $.ajax({
 });
 
 }
+
 }
 // End Calendricapi call
 
@@ -144,16 +145,18 @@ function weatherforcastapi(lat, lon) {
 }
 
 function coutryflag(countrycode) {
+  var countrycode = "FR";
   $.ajax({
     url: "https://restcountries.eu/rest/v2/alpha/" + countrycode,
     method: "GET",
   }).then(function (response) {
     //  country flag code goes here
     var imgOfFlag = $("<img>").attr("src", response.flag);
+
     $(".flag").append(imgOfFlag);
-    $(".language").text(`Language: ${response.languages[0].name}`);
-    $(".population").text(`Population: ${response.population}`);
-    $(".currencies").text(`Currencies: ${response.currencies[0].name}`);
-    $(".callingCode").text(`Dialing code: +${response.callingCodes}`);
+    $(".language").text("Language: " + response.languages[0].name);
+    $(".population").text("Population: " + response.population);
+    $(".currencies").text("Currencies: " + response.currencies[0].name);
+    $(".callingCode").text("Dialing code: " + response.callingCodes);
   });
 }
