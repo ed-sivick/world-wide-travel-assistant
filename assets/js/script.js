@@ -2,44 +2,40 @@ $(document).ready(function () {
   $(".currentTime").text(moment().format("llll"));
   // $(document).foundation();
 });
-$("#submit").on("click", function(){
+$("#submit").on("click", function () {
+  var country = $("#country").val().trim().upperCase();
+  var city = $("#city").val().trim().upperCase();
+  var startDate = $("#sd").val().toString();
+  var endDate = $("#ed").val().toString();
+  var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
+  // Here we are building the URL we need to query the database
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?" +
+    "q=" +
+    city +
+    // "," +
+    // country +
+    "&appid=" +
+    APIKey;
 
-var country = $("#country").val().trim().upperCase();
-var city = $("#city").val().trim().upperCase();
-var startDate = $("#sd").val().toString();
-var endDate = $("#ed").val().toString();
-var APIKey = "166a433c57516f51dfab1f7edaed8413";
-
-// Here we are building the URL we need to query the database
-var queryURL =
-  "https://api.openweathermap.org/data/2.5/weather?" +
-  "q=" +
-  city +
-  "," +
-  country +
-  "&appid=" +
-  APIKey;
-
-// Here we run our AJAX call to the OpenWeatherMap API
-$.ajax({
-  url: queryURL,
-  method: "GET",
-})
-  // We store all of the retrieved data inside of an object called "response"
-  .then(function (response) {
-    var lat = response.coord.lat;
-    var lon = response.coord.lon;
-    var countrycode = response.sys.country;
-    // function calls using the information we got from the weatherapi call
-    console.log(response);
-    // calendricapi(countrycode);
-    // weatherforcastapi(lat, lon);
-    // coutryflag(countrycode);
-  });
+  // Here we run our AJAX call to the OpenWeatherMap API
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function (response) {
+      var lat = response.coord.lat;
+      var lon = response.coord.lon;
+      var countrycode = response.sys.country;
+      // function calls using the information we got from the weatherapi call
+      console.log(response);
+      // calendricapi(countrycode);
+      // weatherforcastapi(lat, lon);
+      // coutryflag(countrycode);
+    });
 });
-
-
 
 function calendricapi(countrycode) {
   $.ajax({
@@ -67,8 +63,6 @@ function calendricapi(countrycode) {
   });
 }
 
-
-
 function weatherforcastapi(lat, lon) {
   $.ajax({
     url: "",
@@ -78,13 +72,17 @@ function weatherforcastapi(lat, lon) {
   });
 }
 
-
-
 function coutryflag(countrycode) {
   $.ajax({
     url: "https://restcountries.eu/rest/v2/alpha/" + countrycode,
     method: "GET",
   }).then(function (response) {
     //  country flag code goes here
+    var imgOfFlag = $("<img>").attr("src", response.flag);
+    $(".flag").append(imgOfFlag);
+    $(".language").text(`Language: ${response.languages[0].name}`);
+    $(".population").text(`Population: ${response.population}`);
+    $(".currencies").text(`Currencies: ${response.currencies[0].name}`);
+    $(".callingCode").text(`Dialing code: +${response.callingCodes}`);
   });
 }
