@@ -37,22 +37,28 @@
     <!-- Foundation Grid -->
     <div class="row">
       <div class="columns large-3 small-3 medium-3">
-        <h6> <strong>Enter Destination City</strong> </h6>
+        <h6> <strong>Enter Destination Country</strong> </h6>
         <!-- Destination City Input -->
         <form class="border">
           <div class="input-group">
-            <input class="cityName input-group-field" type="text" placeholder="Destination">
+            <input class="cityName input-group-field" type="text" placeholder="Destination Country" id="country">
             
           </div>
-          <!-- Number of Days at Destination Input -->
-          <h6> <strong>Enter Days at City</strong></h6>
+          <h6> <strong>Enter Destination City</strong> </h6>
           <div class="input-group">
-            <input type="date" id="start" name="trip-start"
+            <input class="cityName input-group-field" type="text" placeholder="Destination City" id="city">
+            
+          </div>
+          <!-- Number of Days at Destination Input -->          
+          <div class="input-group">
+            <h6> <strong>Enter Start Date</strong></h6>
+            <input type="date" id="sd" name="trip-start"
             value="Start Date"
-            min="2020-09-20" max="2022-09-30" class=".daysStay">
-            <input type="date" id="end" name="trip-end"
+            min="2020-09-20" max="2022-09-30" class="daysStay">
+            <h6> <strong>Enter End Date</strong></h6>
+            <input type="date" id="ed" name="trip-end"
             value="End Date"
-            min="2020-09-21" max="2022-10-30" class=".daysStay">
+            min="2020-09-21" max="2022-10-30" class="daysStay">
           </div>
         </form>
 
