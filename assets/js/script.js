@@ -2,11 +2,10 @@ $(document).ready(function () {
   $(".currentTime").text(moment().format("llll"));
   // $(document).foundation();
 });
-$("#submit").on("click", function(){
-
-
-var country = $("#country").val().trim().upperCase();
-var city = $("#city").val().trim().upperCase();
+$("#submit").click(function(event){
+event.preventDefault();
+var country = $("#country").val().trim().toUpperCase();
+var city = $("#city").val().trim().toUpperCase();
 var startDate = $("#sd").val().toString();
 var endDate = $("#ed").val().toString();
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -33,7 +32,7 @@ $.ajax({
     var countrycode = response.sys.country;
     // function calls using the information we got from the weatherapi call
     console.log(response);
-    // calendricapi(countrycode);
+    calendricapi(countrycode);
     // weatherforcastapi(lat, lon);
     // coutryflag(countrycode);
   });
