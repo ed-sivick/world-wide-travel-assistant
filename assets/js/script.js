@@ -8,9 +8,13 @@ var country = $("#country").val().trim().toUpperCase();
 var city = $("#city").val().trim().toUpperCase();
 var startDate = $("#sd").val().toString();
 var endDate = $("#ed").val().toString();
+// start year
 var syear = new Date(startDate).getFullYear();
+// start month
 var smonth = new Date(startDate).getMonth() + 1;
+// end year
 var eyear = new Date(endDate).getFullYear();
+// end month
 var emonth = new Date(endDate).getMonth() + 1;
 if(syear===eyear){
 if(smonth === emonth){
@@ -42,7 +46,7 @@ $.ajax({
     var countrycode = response.sys.country;
     // function calls using the information we got from the weatherapi call
     console.log(response);
-    calendricapi(countrycode);
+    // calendricapi(countrycode, syear, endDate, smonth, emonth, visitMonth);
     // weatherforcastapi(lat, lon);
     // coutryflag(countrycode);
   });
@@ -76,6 +80,31 @@ function calendricapi(countrycode) {
   });
 }else{
 // Code to be addded
+$.ajax({
+  url:
+    "https://calendarific.com/api/v2/holidays?&api_key=dfd7976d8e75420dd3c5e1009a633b9446657f23&country=" +
+    countrycode +
+    "&year="+ syear +"&month="+ smonth,
+  method: "GET",
+}).then(function (response) {
+  var holidayarray = response.response.holidays;
+  for (var i = 0; i < holidayarray.length; i++) {
+    var hname = holidayarray[i].name;
+    var hdescription = holidayarray[i].description;
+    var hlocation = holidayarray[i].locations;
+    var hstate = holidayarray[i].states;
+    var htype = holidayarray[i].type;
+    var hdate =
+      holidayarray[i].date.datetime.month +
+      "/" +
+      holidayarray[i].date.datetime.day +
+      "/" +
+      holidayarray[i].date.datetime.year;
+      
+  }
+  console.log(response);
+  // ajax call for the end year goes here and updates the ui
+});
 }
 }
 
