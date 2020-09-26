@@ -12,16 +12,12 @@ var syear = new Date(startDate).getFullYear();
 var smonth = new Date(startDate).getMonth() + 1;
 var eyear = new Date(endDate).getFullYear();
 var emonth = new Date(endDate).getMonth() + 1;
+if(syear===eyear){
 if(smonth === emonth){
   var visitMonth = smonth;
 }else{
   var visitMonth = smonth +","+emonth;
 }
-if(syear === eyear){
-  var visitYear = syear;
-}else
-{
-  var visitYear = syear+"," + eyear;
 }
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
 // Here we are building the URL we need to query the database
@@ -53,11 +49,12 @@ $.ajax({
 });
 
 function calendricapi(countrycode) {
+  if(syear === eyear){
   $.ajax({
     url:
       "https://calendarific.com/api/v2/holidays?&api_key=dfd7976d8e75420dd3c5e1009a633b9446657f23&country=" +
       countrycode +
-      "&year="+ visitYear +"&month="+ visitYear,
+      "&year="+ syear +"&month="+ visitMonth,
     method: "GET",
   }).then(function (response) {
     var holidayarray = response.response.holidays;
@@ -77,6 +74,9 @@ function calendricapi(countrycode) {
     }
     console.log(response);
   });
+}else{
+// Code to be addded
+}
 }
 
 function weatherforcastapi(lat, lon) {
