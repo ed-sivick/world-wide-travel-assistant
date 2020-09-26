@@ -52,8 +52,6 @@ $.ajax({
   });
 });
 
-
-
 function calendricapi(countrycode) {
   $.ajax({
     url:
@@ -81,8 +79,6 @@ function calendricapi(countrycode) {
   });
 }
 
-
-
 function weatherforcastapi(lat, lon) {
   $.ajax({
     url: "",
@@ -92,13 +88,17 @@ function weatherforcastapi(lat, lon) {
   });
 }
 
-
-
 function coutryflag(countrycode) {
   $.ajax({
     url: "https://restcountries.eu/rest/v2/alpha/" + countrycode,
     method: "GET",
   }).then(function (response) {
     //  country flag code goes here
+    var imgOfFlag = $("<img>").attr("src", response.flag);
+    $(".flag").append(imgOfFlag);
+    $(".language").text(`Language: ${response.languages[0].name}`);
+    $(".population").text(`Population: ${response.population}`);
+    $(".currencies").text(`Currencies: ${response.currencies[0].name}`);
+    $(".callingCode").text(`Dialing code: +${response.callingCodes}`);
   });
 }
