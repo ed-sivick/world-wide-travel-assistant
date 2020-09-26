@@ -46,13 +46,14 @@ $.ajax({
     var countrycode = response.sys.country;
     // function calls using the information we got from the weatherapi call
     console.log(response);
-    // calendricapi(countrycode, syear, endDate, smonth, emonth, visitMonth);
+     calendricapi(countrycode, syear, eyear, smonth, emonth, visitMonth);
     // weatherforcastapi(lat, lon);
     // coutryflag(countrycode);
   });
 });
 
-function calendricapi(countrycode) {
+// Calendricapi call begin
+function calendricapi(countrycode, syear, eyear, smonth, emonth, visitMonth) {
   if(syear === eyear){
   $.ajax({
     url:
@@ -86,8 +87,8 @@ $.ajax({
     countrycode +
     "&year="+ syear +"&month="+ smonth,
   method: "GET",
-}).then(function (response) {
-  var holidayarray = response.response.holidays;
+}).then(function (response1) {
+  var holidayarray = response1.response.holidays;
   for (var i = 0; i < holidayarray.length; i++) {
     var hname = holidayarray[i].name;
     var hdescription = holidayarray[i].description;
@@ -102,11 +103,36 @@ $.ajax({
       holidayarray[i].date.datetime.year;
       
   }
-  console.log(response);
+  console.log(response1);
   // ajax call for the end year goes here and updates the ui
+  $.ajax({
+    url:  "https://calendarific.com/api/v2/holidays?&api_key=dfd7976d8e75420dd3c5e1009a633b9446657f23&country=" +
+    countrycode +
+    "&year="+ eyear +"&month="+ emonth,
+  }).then(function(response2){
+    var holidayarray = response1.response.holidays;
+    for (var i = 0; i < holidayarray.length; i++) {
+      var hname = holidayarray[i].name;
+      var hdescription = holidayarray[i].description;
+      var hlocation = holidayarray[i].locations;
+      var hstate = holidayarray[i].states;
+      var htype = holidayarray[i].type;
+      var hdate =
+        holidayarray[i].date.datetime.month +
+        "/" +
+        holidayarray[i].date.datetime.day +
+        "/" +
+        holidayarray[i].date.datetime.year;
+        
+    }
+    console.log(response2)
+  });
+
 });
+
 }
 }
+// End Calendricapi call
 
 function weatherforcastapi(lat, lon) {
   $.ajax({
