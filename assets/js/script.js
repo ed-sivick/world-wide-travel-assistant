@@ -75,7 +75,11 @@ function calendricapi(countrycode, syear, eyear, smonth, emonth, visitMonth) {
         holidayarray[i].date.datetime.day +
         "/" +
         holidayarray[i].date.datetime.year;
-        
+       var trEl =$("<tr>");
+       var td1 = $("<td>").text(hname);
+       var td2 =$("<td>").text(hdate);
+       trEl.append(td1, td2);
+       $("#holiday").append(trEl); 
     }
     console.log(response);
   });
@@ -101,6 +105,12 @@ $.ajax({
       holidayarray[i].date.datetime.day +
       "/" +
       holidayarray[i].date.datetime.year;
+
+      var trEl =$("<tr>");
+      var td1 = $("<td>").text(hname);
+      var td2 =$("<td>").text(hdate);
+      trEl.append(td1, td2);
+      $("#holiday").append(trEl); 
       
   }
   console.log(response1);
@@ -110,7 +120,7 @@ $.ajax({
     countrycode +
     "&year="+ eyear +"&month="+ emonth,
   }).then(function(response2){
-    var holidayarray = response1.response.holidays;
+    var holidayarray = response2.response.holidays;
     for (var i = 0; i < holidayarray.length; i++) {
       var hname = holidayarray[i].name;
       var hdescription = holidayarray[i].description;
@@ -123,6 +133,12 @@ $.ajax({
         holidayarray[i].date.datetime.day +
         "/" +
         holidayarray[i].date.datetime.year;
+
+        var trEl =$("<tr>");
+        var td1 = $("<td>").text(hname);
+        var td2 =$("<td>").text(hdate);
+        trEl.append(td1, td2);
+        $("#holiday").append(trEl); 
         
     }
     console.log(response2)
