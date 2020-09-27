@@ -36,7 +36,7 @@
   <main>
     <!-- Foundation Grid -->
     <div class="row">
-      <div class="columns large-3 small-3 medium-3">
+      <div class="columns large-3 small-12 medium-3">
         <h6> <strong>Enter Destination Country</strong> </h6>
         <!-- Destination City Input -->
         <form class="border">
@@ -83,20 +83,34 @@
       </div>
 
       <!-- Grid right side column -->
-      <div class="columns large-9 small-9 medium-9">
+      <div class="columns large-9 small-12 medium-9">
         <!-- Destination Holidays -->
         <div class="row">
           <div class="cityData">
             <h5 class="centerText">Destination Holidays</h5>
             <div class="holidays">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Holiday Name</th>
+                    <th>Holiday Date</th>
+                  </tr>
+                </thead>
+                <tbody id="holiday">
+
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+        <!-- weather row begining -->
         <div class="row">
+          <div class="column">
         <h5 class="centerText">Weather Forecast</h5>
-
         <!-- City Weather Forecast Card Response -->
         <div class="weatherContainer">
+          <!-- weather cars begining -->
+          
           <div class="day1 card" style="width: 200px;">
             <div class="centerText card-divider">
               <b>Day 1</b>
@@ -140,7 +154,9 @@
               <h6 class="humidity">Humidity:</h6>
             </div>
           </div>
+        
 
+             
           <div class="day5 card" style="width: 200px;">
             <div class="centerText card-divider">
               <b>Day 5</b>
@@ -184,9 +200,17 @@
               <h6 class="humidity">Humidity:</h6>
             </div>
           </div>
+         
+
+          <!-- weather card ending -->
+       
+      </div>
+
 
         </div>
         </div>
+      <!-- end of weather row   -->
+
       </div>
     </div>
 
