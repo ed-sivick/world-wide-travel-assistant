@@ -35,13 +35,11 @@ h5 {
     background-color: white;
     opacity: 0.6;
 }
-
 #start{
     border-color:  #2199e8;
     background-color: white;
     opacity: 0.6;
 }
-
 #end{
     border-color:  #2199e8;
     background-color: white;
@@ -65,7 +63,6 @@ h5 {
     margin-left: 0.9rem;
     padding: 1rem;
 }
-
 .card {
     border-style: solid;
     background-color: white;
@@ -74,13 +71,10 @@ h5 {
     margin-bottom: 1.0rem;
     padding: 0.5rem;
 }
-
 .weatherContainer {
     column-count: 4;
     column-gap: 0.5rem;
-    
 }
-
 /* .bgImage {
     background: url(assets/images/beach1.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
