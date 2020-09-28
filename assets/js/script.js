@@ -215,10 +215,12 @@ function coutryflag(countrycode) {
   }).then(function (response) {
     //  country flag code goes here
     var imgOfFlag = $("<img>").attr("src", response.flag);
-
     $(".flag").append(imgOfFlag);
     $(".language").text("Language: " + response.languages[0].name);
-    $(".population").text("Population: " + response.population);
+    $(".population").text(
+      "Population: " +
+        Number(parseFloat(response.population).toFixed(2)).toLocaleString("en")
+    );
     $(".currencies").text("Currencies: " + response.currencies[0].name);
     $(".callingCode").text("Dialing code: +" + response.callingCodes);
   });
