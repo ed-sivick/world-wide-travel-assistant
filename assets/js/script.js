@@ -2,6 +2,18 @@ $(document).ready(function () {
   $(".currentTime").text(moment().format("llll"));
   // $(document).foundation();
 });
+
+// Add Date to top banner of app
+var currentDate = moment().format("[Today is:] dddd, MMMM Do, YYYY");
+var $todayDate = $(".todayDate");
+$todayDate.text(currentDate);
+
+// Clear screen data
+$("#clear").click(function (event) {
+  event.preventDefault();
+  location.reload();
+});
+
 $("#submit").click(function (event) {
   event.preventDefault();
   var country = $("#country").val().trim().toUpperCase();

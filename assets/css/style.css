@@ -18,11 +18,18 @@ body{
     font-weight: bold;
     text-align: center;
     color: white;
-    padding-top: 1.0rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.75rem;
+    padding-top: .25rem;
+    padding-bottom: 0.50rem;
+    margin-bottom: 1.0rem;
     background: #2199e8;
     opacity: 0.6;
+}
+
+.todayDate {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0rem;
+    font-weight: bold;
+    color:black;
 }
 /* Style for font awesome icon  */
 i {
@@ -67,6 +74,9 @@ h5, h6 {
     opacity: 0.6;
     margin-bottom: 1.75rem;
 }
+.clearData {
+    padding-left: 1.0rem;
+}
 /* Style cityData div for better background image appearance  */
 .cityData {
     font-weight: bold;
@@ -74,9 +84,13 @@ h5, h6 {
     background-color: white;
     opacity: 0.6;
     border-color:  #2199e8;
-    /* margin-left: 0.9rem; */
     padding: 1rem;
 }
+
+th {
+    text-decoration-line: underline;
+}
+
 /* Style Weather Forecast text */
 .weatherText {
     margin-top: 1rem;
