@@ -61,7 +61,7 @@ $("#submit").click(function (event) {
         endDay
       );
       // weatherforcastapi(lat, lon);
-      // coutryflag(countrycode);
+      coutryflag(countrycode);
     });
 });
 
@@ -98,13 +98,13 @@ function calendricapi(
         var hday = holidayarray[i].date.datetime.day;
         var hyear = holidayarray[i].date.datetime.year;
         var hdate = hmonth + "/" + hday + "/" + hyear;
-        if(hmonth === smonth){
-          if(hday < startDay){
+        if (hmonth === smonth) {
+          if (hday < startDay) {
             continue;
           }
         }
-        if(hmonth === emonth){
-          if(hday > endDay){
+        if (hmonth === emonth) {
+          if (hday > endDay) {
             continue;
           }
         }
@@ -139,7 +139,7 @@ function calendricapi(
         var hday = holidayarray[i].date.datetime.day;
         var hyear = holidayarray[i].date.datetime.year;
         var hdate = hmonth + "/" + hday + "/" + hyear;
-        if(hday < startDay){
+        if (hday < startDay) {
           continue;
         }
         var trEl = $("<tr>");
@@ -170,7 +170,7 @@ function calendricapi(
           var hday = holidayarray[i].date.datetime.day;
           var hyear = holidayarray[i].date.datetime.year;
           var hdate = hmonth + "/" + hday + "/" + hyear;
-          if(hday > endDay){
+          if (hday > endDay) {
             continue;
           }
           var trEl = $("<tr>");
@@ -196,7 +196,7 @@ function weatherforcastapi(lat, lon) {
 }
 
 function coutryflag(countrycode) {
-  var countrycode = "FR";
+  // var countrycode = "FR";
   $.ajax({
     url: "https://restcountries.eu/rest/v2/alpha/" + countrycode,
     method: "GET",
@@ -208,6 +208,6 @@ function coutryflag(countrycode) {
     $(".language").text("Language: " + response.languages[0].name);
     $(".population").text("Population: " + response.population);
     $(".currencies").text("Currencies: " + response.currencies[0].name);
-    $(".callingCode").text("Dialing code: " + response.callingCodes);
+    $(".callingCode").text("Dialing code: +" + response.callingCodes);
   });
 }
