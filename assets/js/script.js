@@ -60,6 +60,7 @@ $("#submit").click(function (event) {
             var lat = response.coord.lat;
             var lon = response.coord.lon;
             var countrycode = response.sys.country;
+            $(".weatherText").append(" - " + response.name);
             // function calls using the information we got from the weatherapi call
             console.log(response);
              calendricapi(
