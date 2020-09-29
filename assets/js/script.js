@@ -50,10 +50,6 @@ $("#submit").click(function (event) {
         "&appid=" +
         APIKey;
 
-    var latitude;
-
-    var longitude;
-
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
         url: queryURL,
@@ -66,18 +62,18 @@ $("#submit").click(function (event) {
             var countrycode = response.sys.country;
             // function calls using the information we got from the weatherapi call
             console.log(response);
-            //  calendricapi(
-            //     countrycode,
-            //     syear,
-            //     eyear,
-            //     smonth,
-            //     emonth,
-            //     visitMonth,
-            //     startDay,
-            //     endDay
-            // );
+             calendricapi(
+                countrycode,
+                syear,
+                eyear,
+                smonth,
+                emonth,
+                visitMonth,
+                startDay,
+                endDay
+            );
             weatherforcastapi(lat, lon);
-            // coutryflag(countrycode);
+            coutryflag(countrycode);
         });
 });
 
@@ -200,7 +196,6 @@ function calendricapi(
         });
     }
 }
-
 
 function weatherforcastapi(lat, lon) {
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
