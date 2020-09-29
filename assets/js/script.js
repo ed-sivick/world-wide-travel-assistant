@@ -61,6 +61,8 @@ $("#submit").click(function (event) {
             var lon = response.coord.lon;
             var countrycode = response.sys.country;
             $(".weatherText").append(" - " + response.name);
+            $(".countryFacts").text("Facts About - " + country);
+            $(".holidayText").text("Holidays in " + country + " between "+ startDate + " - " + endDate);
             // function calls using the information we got from the weatherapi call
             console.log(response);
              calendricapi(
