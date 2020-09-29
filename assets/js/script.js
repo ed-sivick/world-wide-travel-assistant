@@ -66,18 +66,18 @@ $("#submit").click(function (event) {
             var countrycode = response.sys.country;
             // function calls using the information we got from the weatherapi call
             console.log(response);
-            calendricapi(
-                countrycode,
-                syear,
-                eyear,
-                smonth,
-                emonth,
-                visitMonth,
-                startDay,
-                endDay
-            );
-            weatherforcastapi(city, citySearchList);
-            coutryflag(countrycode);
+            //  calendricapi(
+            //     countrycode,
+            //     syear,
+            //     eyear,
+            //     smonth,
+            //     emonth,
+            //     visitMonth,
+            //     startDay,
+            //     endDay
+            // );
+            weatherforcastapi(lat, lon);
+            // coutryflag(countrycode);
         });
 });
 
@@ -208,7 +208,7 @@ function weatherforcastapi(lat, lon) {
         var queryURL3 =
         "https://api.openweathermap.org/data/2.5/onecall?appid="+
         APIKey+
-        "&q=&lat=" +
+        "&lat=" +
         lat +
         "&lon=" +
         lon;
