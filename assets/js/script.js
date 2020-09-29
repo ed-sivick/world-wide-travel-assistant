@@ -205,58 +205,99 @@ function calendricapi(
 function weatherforcastapi(lat, lon) {
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
 
-        var queryURL3 =
-        "https://api.openweathermap.org/data/2.5/onecall?appid="+
-        APIKey+
+    var queryURL3 =
+        "https://api.openweathermap.org/data/2.5/onecall?appid=" +
+        APIKey +
         "&lat=" +
         lat +
         "&lon=" +
         lon;
 
-      $.ajax({
+    $.ajax({
         url: queryURL3,
         method: "GET"
-    }).then(function(response3){
-            console.log(response3);
-            // code goes here
-        });
+    }).then(function (response3) {
+        console.log(queryURL3);
+        console.log(response3);
 
-  }
+        // Loop through the forecast list array and display a single forecast entry/time 
+        //(5th entry of each day which is close to the highest temp/time of the day) from each of the 5 days
+        for (var i = 6; i < forecast.list.length; i +=10) {
+            // 6, 14, 22, 30, 38
+            var forecastDate = $("<h5>");
+
+            var forecastPosition = (i + 2) / 8;
+
+            console.log("#forecast-date" + forecastPosition);
+
+            $("#forecast-date" + forecastPosition).empty();
+            $("#forecast-date" + forecastPosition).append(
+                forecastDate.text(nowMoment.add(1, "days").format("M/D/YYYY"))
+            );
+
+            var forecastIcon = $("<img>");
+            forecastIcon.attr(
+                "src",
+                "https://openweathermap.org/img/w/" +
+                forecast.list[i].weather[0].icon +
+                ".png"
+            );
+
+            $("#forecast-icon" + forecastPosition).empty();
+            $("#forecast-icon" + forecastPosition).append(forecastIcon);
+
+            console.log(forecast.list[i].weather[0].icon);
+
+            $("#forecast-temp" + forecastPosition).text(
+                "Temp: " + forecast.list[i].main.temp + " °F"
+            );
+            $("#forecast-humidity" + forecastPosition).text(
+                "Humidity: " + forecast.list[i].main.humidity + "%"
+            );
+
+            $(".forecast").attr(
+                "style",
+                "background-color:dodgerblue; color:white"
+
+            );
+        }
+    });
+}
 
 //City information
 function coutryflag(countrycode) {
-  //https://restcountries.eu requires no api key
-  $.ajax({
-    url:
-      "https://restcountries.eu/rest/v2/alpha/" +
-      //country code pulls code from open weather api
-      countrycode,
-    method: "GET",
-  }).then(function (response) {
-    //Pulling image data and creating element dynamically
-    var imgOfFlag = $("<img>").attr("src", response.flag);
-    //Displaying it to the html selected by class
-    $(".flag").append(imgOfFlag);
-    //Displaying language data
-    $(".language").text("Language: " + response.languages[0].name);
-    //Displaying population & giving comma to it
-    $(".population").text(
-      "Population: " +
-        Number(parseFloat(response.population).toFixed()).toLocaleString()
-    );
-    //Displaying currencies data (some countries use several currencies)
-    $(".currencies").text(
-      "Currencies: " +
-        response.currencies
-          .filter(function (c) {
-            return c.name;
-          })
-          .map(function (c) {
-            return c.name + "(" + c.code + ")";
-          })
-          .join(", ")
-    );
-    //Displaying dialing code
-    $(".callingCode").text("Dialing code: +" + response.callingCodes);
-  });
+    //https://restcountries.eu requires no api key
+    $.ajax({
+        url:
+            "https://restcountries.eu/rest/v2/alpha/" +
+            //country code pulls code from open weather api
+            countrycode,
+        method: "GET",
+    }).then(function (response) {
+        //Pulling image data and creating element dynamically
+        var imgOfFlag = $("<img>").attr("src", response.flag);
+        //Displaying it to the html selected by class
+        $(".flag").append(imgOfFlag);
+        //Displaying language data
+        $(".language").text("Language: " + response.languages[0].name);
+        //Displaying population & giving comma to it
+        $(".population").text(
+            "Population: " +
+            Number(parseFloat(response.population).toFixed()).toLocaleString()
+        );
+        //Displaying currencies data (some countries use several currencies)
+        $(".currencies").text(
+            "Currencies: " +
+            response.currencies
+                .filter(function (c) {
+                    return c.name;
+                })
+                .map(function (c) {
+                    return c.name + "(" + c.code + ")";
+                })
+                .join(", ")
+        );
+        //Displaying dialing code
+        $(".callingCode").text("Dialing code: +" + response.callingCodes);
+    });
 }
