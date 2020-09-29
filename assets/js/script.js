@@ -207,21 +207,40 @@ function weatherforcastapi(lat, lon) {
   });
 }
 
+//City information
 function coutryflag(countrycode) {
-  // var countrycode = "FR";
+  //https://restcountries.eu requires no api key
   $.ajax({
-    url: "https://restcountries.eu/rest/v2/alpha/" + countrycode,
+    url:
+      "https://restcountries.eu/rest/v2/alpha/" +
+      //country code pulls code from open weather api
+      countrycode,
     method: "GET",
   }).then(function (response) {
-    //  country flag code goes here
+    //Pulling image data and creating element dynamically
     var imgOfFlag = $("<img>").attr("src", response.flag);
+    //Displaying it to the html selected by class
     $(".flag").append(imgOfFlag);
+    //Displaying language data
     $(".language").text("Language: " + response.languages[0].name);
+    //Displaying population & giving comma to it
     $(".population").text(
       "Population: " +
-        Number(parseFloat(response.population).toFixed(2)).toLocaleString("en")
+        Number(parseFloat(response.population).toFixed()).toLocaleString()
     );
-    $(".currencies").text("Currencies: " + response.currencies[0].name);
+    //Displaying currencies data (some countries use several currencies)
+    $(".currencies").text(
+      "Currencies: " +
+        response.currencies
+          .filter(function (c) {
+            return c.name;
+          })
+          .map(function (c) {
+            return c.name + "(" + c.code + ")";
+          })
+          .join(", ")
+    );
+    //Displaying dialing code
     $(".callingCode").text("Dialing code: +" + response.callingCodes);
   });
 }
