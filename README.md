@@ -1,6 +1,6 @@
 # Project 1  
 ___
-## Title: Worldwide Weather Assistant
+## Title: Worldwide Travel Assistant
 Team members:   
 - Mongolmaa Gurbazar  
 - Nigara Sawirdin  
