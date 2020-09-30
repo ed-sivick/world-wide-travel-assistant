@@ -62,7 +62,7 @@ $("#submit").click(function (event) {
             var countrycode = response.sys.country;
             $(".weatherText").append(" - " + response.name);
             $(".countryFacts").text("Facts About - " + country);
-            $(".holidayText").text("Holidays in " + country + " between "+ startDate + " - " + endDate);
+            $(".holidayText").text("Holidays in " + country + " between "+ smonth+"/"+startDay+"/"+syear + " - " + emonth+"/"+endDay+"/"+eyear);
             // function calls using the information we got from the weatherapi call
             console.log(response);
              calendricapi(
