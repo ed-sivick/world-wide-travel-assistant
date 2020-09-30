@@ -61,4 +61,4 @@ script.js code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/mas
 GitHub Repository:(https://github.com/Yigezu1/world-wide-travel-assistant)   
 
 <p align="left">
-  <img src="assets/images/miami1.png" height="450" margin-bottom: 10px; title="city and country information including weather forecast for Miami, Florida" alt="city and country information including weather forecast for Miami, Florida">
+  <img src="assets/images/seoul1.png" height="450" margin-bottom: 10px; title="city and country information including weather forecast for Seoul, South Korea" alt="city and country information including weather forecast for Seoul, South Korea">
