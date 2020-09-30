@@ -54,9 +54,11 @@ ___
 ## Application Links and Images  
 **Links:**  
 Application link: (https://yigezu1.github.io/world-wide-travel-assistant/)  
+
 index.html code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/index.html)  
 style.css code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/css/style.css)  
-script.js code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/js/script.js)  
+script.js code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/js/script.js)   
+GitHub Repository:(https://github.com/Yigezu1/world-wide-travel-assistant)   
 
 <p align="left">
   <img src="assets/images/miami1.png" height="450" margin-bottom: 10px; title="city and country information including weather forecast for Miami, Florida" alt="city and country information including weather forecast for Miami, Florida">
