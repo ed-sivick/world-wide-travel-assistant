@@ -3,7 +3,7 @@ ___
 ## Title: Worldwide Weather Assistant
 Team members:   
 - Mongolmaa Gurbazar  
-- April Sawirdin  
+- Nigara Sawirdin  
 - Sean Akene  
 - Yigezu Birhane  
 - Ed Sivick  
@@ -18,13 +18,18 @@ ___
 07 Must be deployed to GitHub Pages  
 08 Must be interactive (i.e: accept and respond to user input)  
 ___
+## User Story
+AS a worldwide business and leisure traveler who plans trips ranging from 1 day to 2 weeks  
+I want to know the holidays, weather, and some useful information about the area that I am visiting  
+WHEN I am presented with this information, I can determine the proper clothing to wear, and the areas that might have holiday-related activities  
+___
 ## Project Description
 Business and leisure travel to many states or countries can be difficult if you aren’t equipped with the proper attire, or knowledge of specific holidays in that area. The ability to view this information before visiting the region can save the traveler time and effort through pre-planning.  The travel input criteria including: visiting city, start travel date, and end travel date will initialize a server-side API from https://calendarific.com/, providing them with holiday information as well as useful facts about their destination.  Information pertaining to the destination country is supplied to the app by means of an API from RESTful, https://restcountries.eu/#rest-countries. The traveler can also utilize the weather information for that destination, and select the proper clothing or make appropriate plans to adjust for it.  The input data is used to initiate another server-side API from https://openweathermap.org/ to provide the weather information.  The date information is displayed using **moment.js**
 ___
 ## Layout: index.html
 The index.html file was built using ZURB Foundation, a responsive front-end framework that is similar to Bootstrap.  The app utilizes a foundation callout in a header that identifies the title of the app along with a paragraph element that displays the current date from **moment.js**. The grid for the app was completed using a left and a right side column.  The left side column contains a row div wrapping a column div, **columns large-3 small-12 medium-3**.  This allows for a single column display (**small-12**) on smaller mobile devices.  The top portion of this column contains a form with several interactive user inputs for traveling to their desired destination, **Destination Country**, **Destination City**, **Start Date**, and **End Date**. The user then presses the **Submit** button to initiate the JavaScript code, and display the associated API responses.  These responses include the data that is shown  inside the **Country information** div, **Destination Holidays** table, and **Weather Forecast** cards. 
 
-The right side column containing the Destination Holidays, and Weather Forecast data is built using a column layout **columns large-9 small-12 medium-9**. The daily weather forecast is represented by separate Foundation cards with a column layout of **columns large-3 medium-6 small-12** for each card. This layout again allows for a single column display (**small-12**) on smaller mobile devices. A sticky footer was added to the bottom of the app to display the title and Copyright year. An empty div was added below the left and right side columns to allow space between the displayed data and the top of the footer for smaller mobile devices.  
+The right side column containing the Destination Holidays, and Weather Forecast data is built using a column layout **columns large-9 small-12 medium-9**. The daily weather forecast is represented by separate dynamically created Foundation cards through JavaScript and have a column layout of **columns large-3 medium-6 small-12** for each card. This layout again allows for a single column display (**small-12**) on smaller mobile devices. A sticky footer was added to the bottom of the app to display the title and Copyright year. An empty div was added below the left and right side columns to allow space between the displayed data and the top of the footer for smaller mobile devices.  
 ___
 ## Layout: style.css
 
@@ -48,3 +53,10 @@ ___
 
 ## Application Links and Images  
 **Links:**  
+Application link: (https://yigezu1.github.io/world-wide-travel-assistant/)  
+index.html code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/index.html)  
+style.css code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/css/style.css)  
+script.js code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/js/script.js)  
+
+<p align="left">
+  <img src="assets/images/miami1.png" height="450" margin-bottom: 10px; title="city and country information including weather forecast for Miami, Florida" alt="city and country information including weather forecast for Miami, Florida">
