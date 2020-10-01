@@ -53,12 +53,12 @@ ___
 
 ## Application Links and Images  
 **Links:**  
-Application link: (https://yigezu1.github.io/world-wide-travel-assistant/)  
+Application link: (https://ed-sivick.github.io/world-wide-travel-assistant/index.html)  
 
-index.html code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/index.html)  
-style.css code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/css/style.css)  
-script.js code: (https://github.com/Yigezu1/world-wide-travel-assistant/blob/master/assets/js/script.js)   
-GitHub Repository:(https://github.com/Yigezu1/world-wide-travel-assistant)   
+index.html code: (https://github.com/ed-sivick/world-wide-travel-assistant/blob/master/index.html)  
+style.css code: (https://github.com/ed-sivick/world-wide-travel-assistant/blob/master/assets/css/style.css)  
+script.js code: (https://github.com/ed-sivick/world-wide-travel-assistant/blob/master/assets/js/script.js)   
+GitHub Repository:(https://github.com/ed-sivick/world-wide-travel-assistant)   
 
 <p align="left">
   <img src="assets/images/seoul2.png" height="450" margin-bottom: 10px; title="city and country information including weather forecast for Seoul, South Korea" alt="city and country information including weather forecast for Seoul, South Korea">
